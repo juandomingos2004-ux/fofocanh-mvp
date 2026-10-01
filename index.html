@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#090816" />
+  <meta name="description" content="FofocaNH — o que está rolando agora em Novo Horizonte." />
+  <title>FofocaNH</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="app-shell">
+    <header class="topbar">
+      <div class="brand-wrap">
+        <div class="brand-icon" aria-hidden="true"><span>•••</span></div>
+        <div>
+          <div class="brand">Fofoca<span>NH</span></div>
+          <div class="presence"><i></i><strong id="onlineCount">1</strong> online</div>
+        </div>
+      </div>
+      <button class="credits-pill" id="creditsButton" aria-label="Abrir Superchat">
+        <span class="coin">◉</span>
+        <strong id="creditsValue">48</strong>
+        <span class="plus">＋</span>
+      </button>
+    </header>
+
+    <section class="hot-section" aria-labelledby="hot-title">
+      <div class="section-title-row">
+        <h2 id="hot-title"><span>🔥</span> BOMBANDO AGORA</h2>
+        <span class="mini-help" title="Reações únicas prolongam o tempo no ranking">?</span>
+      </div>
+      <div class="hot-grid" id="hotGrid" aria-live="polite"></div>
+    </section>
+
+    <section class="super-section" aria-labelledby="super-title">
+      <div class="section-title-row">
+        <h2 id="super-title"><span>⚡</span> SUPERCHAT</h2>
+        <span class="swipe-hint">Deslize para ver mais ›</span>
+      </div>
+      <div class="super-carousel" id="superCarousel"></div>
+    </section>
+
+    <section class="chat-section" aria-label="Chat ao vivo">
+      <div class="chat-list" id="chatList" aria-live="polite"></div>
+    </section>
+
+    <form class="composer" id="messageForm">
+      <button type="button" class="composer-icon" id="emojiButton" aria-label="Inserir emoji">☺</button>
+      <input id="messageInput" maxlength="300" autocomplete="off" placeholder="Digite aqui..." aria-label="Mensagem" />
+      <button type="submit" class="send-button" aria-label="Enviar mensagem">➤</button>
+    </form>
+  </main>
+
+  <dialog class="modal" id="identityModal">
+    <form method="dialog" id="identityForm" class="modal-card">
+      <div class="modal-mark">•••</div>
+      <h3>Como quer aparecer?</h3>
+      <p>Sem cadastro. Escolha um apelido ou entre como Anônimo.</p>
+      <input id="nicknameInput" maxlength="20" placeholder="Seu apelido" autocomplete="nickname" />
+      <button value="confirm" id="enterButton" class="primary">Entrar no FofocaNH</button>
+      <button value="anon" id="anonButton" class="ghost" type="button">Entrar como Anônimo</button>
+    </form>
+  </dialog>
+
+  <dialog class="modal" id="superchatModal">
+    <form method="dialog" id="superchatForm" class="modal-card">
+      <div class="modal-head">
+        <div>
+          <div class="eyebrow">⚡ SUPERCHAT</div>
+          <h3>Destaque sua mensagem</h3>
+        </div>
+        <button class="close" id="closeSuper" type="button" aria-label="Fechar">×</button>
+      </div>
+      <textarea id="superchatInput" maxlength="180" placeholder="O que todo mundo precisa ver?"></textarea>
+      <div class="plan-grid" id="planGrid">
+        <label class="plan selected"><input type="radio" name="plan" value="20" checked /><b>1 min</b><span>20 créditos</span></label>
+        <label class="plan"><input type="radio" name="plan" value="35" /><b>2 min</b><span>35 créditos</span></label>
+        <label class="plan"><input type="radio" name="plan" value="80" /><b>5 min</b><span>80 créditos</span></label>
+      </div>
+      <button value="default" class="primary" id="publishSuperchat">Publicar Superchat</button>
+      <small class="modal-note">Seu saldo: <strong id="modalCredits">0</strong> créditos</small>
+    </form>
+  </dialog>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="app.js"></script>
+</body>
+</html>
